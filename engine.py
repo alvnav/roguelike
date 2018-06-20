@@ -1,5 +1,6 @@
 import tcod as libtcod
 from input_handlers import handle_keys
+from fontManager import getFont
 
 def main():
     screen_width = 80
@@ -8,7 +9,9 @@ def main():
     player_x = int(screen_width / 2)
     player_y = int(screen_height / 2)
 
-    libtcod.console_set_custom_font('dejavu_wide16x16_gs_tc.png', libtcod.FONT_TYPE_GREYSCALE | libtcod.FONT_LAYOUT_TCOD)
+    font = getFont()
+
+    libtcod.console_set_custom_font(font, libtcod.FONT_TYPE_GREYSCALE | libtcod.FONT_LAYOUT_TCOD)
 
     libtcod.console_init_root(screen_width, screen_height, 'libtcod tutorial revised', False)
 
